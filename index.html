@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Research Site — Data Analytics & Applied AI (IS218-003)</title>
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --surface: #ffffff;
+      --ink: #111827;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --primary: #0f766e;
+      --primary-soft: #f0fdfa;
+      --secondary: #1d4ed8;
+      --secondary-soft: #eff6ff;
+      --warn: #b45309;
+      --warn-soft: #fffbeb;
+      --radius: 12px;
+      --max: 1020px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    header {
+      background: #111827;
+      color: #f9fafb;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .brand { font-weight: 700; font-size: 1rem; }
+    .brand span { color: #2dd4bf; }
+    nav { display: flex; flex-wrap: wrap; gap: 0.85rem; font-size: 0.88rem; align-items: center; }
+    nav a { color: #d1d5db; text-decoration: none; }
+    nav a:hover { color: #ffffff; text-decoration: underline; }
+    nav a.pill {
+      background: #134e4a;
+      color: #ccfbf1;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    nav a.pill-alt {
+      background: #1e3a8a;
+      color: #dbeafe;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    main { max-width: var(--max); margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    h1 { margin: 0 0 0.6rem; font-size: 2rem; line-height: 1.2; }
+    h2 {
+      margin: 2.25rem 0 0.85rem;
+      font-size: 1.35rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+    h3 { margin: 1rem 0 0.4rem; font-size: 1.05rem; }
+    p { margin: 0 0 0.85rem; }
+    .muted { color: var(--muted); font-size: 0.94rem; }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.25rem;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .callout {
+      background: var(--primary-soft);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.2rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 1rem 0 1.5rem;
+    }
+    .callout-warn { background: var(--warn-soft); border-left-color: var(--warn); }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+    }
+    .card.primary-choice { border: 2px solid var(--primary); }
+    .badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.18rem 0.55rem;
+      border-radius: 6px;
+    }
+    .badge-fde { background: #e0e7ff; color: #3730a3; }
+    .badge-tech { background: #dbeafe; color: #1e40af; }
+    .badge-fin { background: #ccfbf1; color: #115e59; }
+    .badge-planned { background: #fef3c7; color: #92400e; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+    th, td {
+      padding: 0.75rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th { background: #f3f4f6; font-weight: 700; }
+    tr:last-child td { border-bottom: none; }
+    ul, ol { margin: 0.4rem 0 0.9rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    a { color: var(--secondary); }
+    code { background: #f3f4f6; padding: 0.12rem 0.35rem; border-radius: 4px; font-size: 0.88em; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">IS218-003 <span>Career Research</span> &amp; Portfolio Plan</div>
+      <nav aria-label="Primary navigation">
+        <a href="#question">Question</a>
+        <a href="#employers">3 Employer Roles</a>
+        <a href="#directions">2 Directions</a>
+        <a href="#portfolio-plan">Portfolio Plan</a>
+        <a href="#peer-review">Peer Review</a>
+        <a class="pill" href="portfolio-draft.html">Review 2 Draft &rarr;</a>
+        <a class="pill-alt" href="https://modrilexx.github.io/is218-focuspulse/">Creative Research Site &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">IS218-003 &bull; Portfolio Plan &bull; Career Research Site</div>
+      <h1>Positioning a Business &amp; Information Systems Portfolio for Data Analytics with Applied AI</h1>
+      <p class="muted">
+        Career research documentation by <strong>Michael Moudatsos</strong> (NJIT, Business &amp; Information Systems).
+        This site evaluates three verified employer job descriptions, compares two career tracks, and documents the
+        scaled static-site architecture for my personal portfolio.
+      </p>
+      <div class="meta-row">
+        <span><strong>Last Checked:</strong> November 19, 2026</span>
+        <span><strong>Portfolio Draft:</strong> <a href="portfolio-draft.html">Open 2-Layout Working Draft (Review 2)</a></span>
+        <span><strong>Cross-Link:</strong> <a href="https://modrilexx.github.io/is218-focuspulse/">AI/Programming Research Site (Creative Project)</a></span>
+      </div>
+    </section>
+
+    <div class="callout callout-warn">
+      <strong>Privacy Scope:</strong> This public documentation covers employer research, skill gaps, and portfolio
+      design decisions only. Personal career reflections and private eligibility details are kept private in the
+      Canvas submission text box.
+    </div>
+
+    <h2 id="question">1. Research Question, Target Reader &amp; Evidence Boundaries</h2>
+    <p>
+      <strong>Research Question:</strong> What specific technical, analytical, and business-communication proof points
+      should an NJIT Business &amp; Information Systems undergraduate highlight in a lightweight portfolio to compete
+      for entry-level <strong>Data Analytics with Applied AI</strong> roles versus <strong>Forward Deployed Engineer (FDE)</strong> paths?
+    </p>
+    <p>
+      <strong>Primary Target Reader:</strong> Analytics hiring managers, campus recruiters, and data team leads in
+      financial services and enterprise technology reviewing candidates in 60&ndash;90 seconds.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Facts (From Employer Pages)</h3>
+        <ul>
+          <li>Financial services early-career programs (JPMorganChase) explicitly combine SQL/BI dashboards with generative AI and ML deployment.</li>
+          <li>Tech risk/analytics roles (Google) emphasize statistical problem-solving, stakeholder presentation, SQL/Python, and familiarity with ML systems.</li>
+          <li>FDE roles (Databricks) require deeper production cloud, Spark, and multi-year engineering experience plus travel.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Interpretations</h3>
+        <ul>
+          <li>A Business &amp; Information Systems major has an immediate advantage on analytics + business-impact storytelling compared to pure theory portfolios.</li>
+          <li>Showing end-to-end project records (data model, validation rules, clear UI, and honest tradeoff notes) signals real workplace readiness.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Assumptions (To Validate)</h3>
+        <ul>
+          <li>Recruiters prefer fast-loading, scannable case studies and a direct résumé link over flashy animations.</li>
+          <li>Two lightweight layout options will let peer reviewers test whether a grid or split-sidebar layout makes key links faster to find.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="employers">2. Three Verified Original Employer Descriptions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Category &amp; Employer</th>
+          <th>Date Checked &amp; Original Source</th>
+          <th>Core Responsibilities</th>
+          <th>Eligibility &amp; Qualifications</th>
+          <th>My Current Gaps</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="badge badge-fde">FDE Role</span><br />
+            <strong>Databricks</strong><br />
+            Forward Deployed Engineer (FDE) &mdash; Public Sector
+          </td>
+          <td>
+            Nov 19, 2026<br />
+            <a href="https://www.databricks.com/company/careers/professional-services-operations/forward-deployed-engineer-fde---public-sector-8611108002" target="_blank" rel="noopener">Official Databricks Posting</a>
+          </td>
+          <td>Lead customer technical projects delivering production data &amp; AI systems, reference architectures, custom apps, data ingestion, and ML/AI model integration; 20&ndash;25% client travel.</td>
+          <td>5+ yrs in data/analytics/software engineering; Python/Scala/JS/TS; 2+ clouds (AWS/Azure/GCP); Apache Spark; CI/CD &amp; MLOps; U.S. citizenship &amp; Secret clearance eligibility.</td>
+          <td>Senior experience threshold (5+ yrs), production Apache Spark internals, multi-cloud MLOps, and federal clearance requirement.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="badge badge-tech">AI-Related Tech Role</span><br />
+            <strong>Google</strong><br />
+            Data Analyst, Risk (Trust &amp; Safety)
+          </td>
+          <td>
+            Nov 19, 2026<br />
+            <a href="https://www.google.com/about/careers/applications/jobs/results/135283167169782470-data-analyst-risk" target="_blank" rel="noopener">Official Google Careers Posting</a>
+          </td>
+          <td>Analyze complex abuse/fraud problems using statistical methods; improve automated systems through data analysis; present insights cross-functionally to engineers and PMs.</td>
+          <td>Bachelor's degree or equivalent; 2 yrs data analysis &amp; project scoping. Preferred: SQL, R, Python, or C++ and 2 yrs familiarity with machine learning systems.</td>
+          <td>Need more documented SQL + Python statistical case studies and demonstrable applied ML/AI evaluation examples.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="badge badge-fin">Non-Tech Industry AI Role</span><br />
+            <strong>JPMorganChase</strong><br />
+            Data &amp; AI Full-Time Analyst Program (Financial Services)
+          </td>
+          <td>
+            Nov 19, 2026<br />
+            <a href="https://www.jpmorganchase.com/careers/explore-opportunities/programs/data-ai-opportunities" target="_blank" rel="noopener">Official JPMorganChase Program Page</a>
+          </td>
+          <td>Sit at the intersection of data, technology, and business strategy across banking/payments/markets; build data pipelines, executive dashboards, and ML/GenAI solutions.</td>
+          <td>Early-career / graduating undergraduate analyst program with structured training and mentorship; strong analytics, data product, and business problem-solving foundation.</td>
+          <td>Need polished end-to-end analytics dashboard &amp; applied AI case study in my portfolio plus quantified business-impact framing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="directions">3. Comparison of Two Career Directions</h2>
+    <div class="grid-2">
+      <div class="card primary-choice">
+        <span class="badge badge-fin">Primary Direction</span>
+        <h3>Direction A: Data Analytics with Applied AI</h3>
+        <p>
+          <strong>Target Roles:</strong> Data &amp; AI Analyst (Financial Services / Enterprise), Business Intelligence &amp;
+          Analytics Analyst, Product/Risk Data Analyst.
+        </p>
+        <ul>
+          <li><strong>Strength Fit:</strong> Directly leverages my NJIT Business &amp; Information Systems coursework, bridging stakeholder requirements, SQL/Python analytics, and practical AI tooling.</li>
+          <li><strong>Entry-Level Accessibility:</strong> High—explicit early-career rotational programs (like JPMorganChase's Data &amp; AI Analyst track) recruit undergraduates directly in the NJ/NYC metro area.</li>
+          <li><strong>Portfolio Priority:</strong> Showcase structured case studies (problem &rarr; data/architecture &rarr; honest results), clean visual hierarchy, and verifiable repo links.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="badge badge-fde">Secondary / Growth Direction</span>
+        <h3>Direction B: Forward Deployed Engineer (FDE) / AI Solutions</h3>
+        <p>
+          <strong>Target Roles:</strong> Associate Solutions Engineer, Deployment Strategist, and later Forward Deployed Engineer.
+        </p>
+        <ul>
+          <li><strong>Strength Fit:</strong> Strong customer-facing communication and systems thinking, similar to consulting + implementation.</li>
+          <li><strong>Barrier Right Now:</strong> Many FDE postings (like Databricks's) require 5+ years of distributed systems/Spark/cloud engineering experience.</li>
+          <li><strong>Strategy:</strong> Keep FDE as a 3&ndash;5 year trajectory by building solid GitHub engineering fundamentals now while targeting Data &amp; AI Analyst roles first.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="portfolio-plan">4. Portfolio Design Decisions &amp; Scaled Static-Site Plan</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Two Brand &amp; Layout Directions (Tested in Review 2 Draft)</h3>
+        <ul>
+          <li><strong>Layout A &mdash; Executive Analytics Grid:</strong> Top navigation, compact KPI/skills strip, and a 2-column project card grid. Emphasizes rapid recruiter scanning.</li>
+          <li><strong>Layout B &mdash; Editorial Split Sidebar:</strong> Fixed left profile/navigation rail with long-form case-study cards on the right. Emphasizes narrative depth and résumé readability.</li>
+        </ul>
+        <p><a href="portfolio-draft.html">Inspect both layouts live on the Review 2 Portfolio Draft &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>Four Portfolio User Stories</h3>
+        <ol>
+          <li>As a recruiter, I can identify Michael's major, target role, and GitHub/LinkedIn links within 10 seconds above the fold.</li>
+          <li>As a hiring manager, I can scan 3 project case studies with clear role, stack, and status labels (including honest in-progress tags).</li>
+          <li>As a recruiter, I can read a structured résumé draft directly on the page without downloading an unknown file first.</li>
+          <li>As a peer reviewer, I can toggle between two layout options of the same content to give concrete usability feedback.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3>Scaled 6-Point Planning Checklist (Right-Sized for a Static Portfolio)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Checklist Area</th>
+          <th>Portfolio Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Agile Work Plan</strong></td>
+          <td>Scope: Static HTML/CSS portfolio draft + career research site + résumé draft. Out of scope: blog CMS, contact backend, dark-mode cookie persistence.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Technical Architecture</strong></td>
+          <td>Pure static HTML5 + CSS3 + minimal vanilla JS (only for the Review 2 layout toggle), hosted free on GitHub Pages.</td>
+        </tr>
+        <tr>
+          <td><strong>3. What I Do NOT Need (and Why)</strong></td>
+          <td><strong>No database, no server, no user accounts, and no OOP design patterns.</strong> A personal portfolio is read-only public content; adding a backend or database would introduce maintenance and security surface for zero reader value.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Testing &amp; Findability Checks</strong></td>
+          <td>Manual + peer findability check (can a reader locate work, résumé, and profile links immediately?), mobile viewport check (375px width), and link check verifying zero broken URLs. Status: <span class="badge badge-planned">Planned</span>.</td>
+        </tr>
+        <tr>
+          <td><strong>5. Code Quality &amp; Accessibility</strong></td>
+          <td>Semantic landmarks (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>), WCAG AA color contrast (&ge;4.5:1), keyboard-accessible layout toggle buttons, and HTML validation before publishing.</td>
+        </tr>
+        <tr>
+          <td><strong>6. Build &amp; Review Sequence</strong></td>
+          <td>Publish Career Research Site &rarr; publish 2-layout Portfolio Draft &rarr; run classmate peer review &rarr; log GitHub Issues &rarr; refine winning layout and insert final verified GitHub/LinkedIn links.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="peer-review">5. AI Verification &amp; Peer Review Tracker</h2>
+    <p class="muted">
+      <strong>AI Assistance Disclosure:</strong> Gemini assisted in locating candidate employer career pages, structuring
+      the static HTML/CSS layout, and organizing the scaled planning checklist. Every employer URL above was verified
+      directly against official employer domains on November 19, 2026.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>GitHub Issue</th>
+          <th>Reviewer (Classmate)</th>
+          <th>Feedback Summary</th>
+          <th>Decision &amp; Reason</th>
+          <th>Change &amp; Reviewer Retry</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>#1</code> <em>[Link after peer review]</em></td>
+          <td><em>[Classmate Name]</em></td>
+          <td><em>[Which layout made work/résumé/links easiest to find? Any confusing claim?]</em></td>
+          <td><span class="badge badge-planned">Pending Peer Session</span></td>
+          <td><em>[Link commit + reviewer retry confirmation]</em></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <p>
+        <strong>Career Research Site</strong> &bull; Michael Moudatsos &bull; IS218-003 (Fall 2026) &bull;
+        Links: <a href="portfolio-draft.html">Portfolio Draft (2 Layouts)</a> &bull;
+        <a href="https://modrilexx.github.io/is218-focuspulse/">AI/Programming Research Site (Creative Project)</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
